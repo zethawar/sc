@@ -1,4 +1,6 @@
 #!/bin/bash
+# Creado por Pablo Guerrero: zethawar@ya.ru
+# Este script renombra los reportes obtenidos de las consolas HE y DEP según la fecha y agrega todos los archivos a un Zip para enviarlo por correo.
 find . -type f -name 'ServidoresdeBasedeDatos-BDpdf_*' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo Alta Disponibilidad de BD.pdf" \;
 find . -type f -name 'ServidoresdeBasedeDatos-BDCSV_*' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo Alta Disponibilidad de BD.csv" \;
 find . -type f -name 'Servidordeaplicaciones2-*.pdf' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo Alta Disponibilidad de SA.pdf" \;
