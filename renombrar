@@ -1,0 +1,24 @@
+#!/bin/bash
+find . -type f -name 'ServidoresdeBasedeDatos-BDpdf_*' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo Alta Disponibilidad de BD.pdf" \;
+find . -type f -name 'ServidoresdeBasedeDatos-BDCSV_*' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo Alta Disponibilidad de BD.csv" \;
+find . -type f -name 'Servidordeaplicaciones2-*.pdf' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo Alta Disponibilidad de SA.pdf" \;
+find . -type f -name 'Servidordeaplicaciones2-*.csv' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo Alta Disponibilidad de SA.csv" \;
+find . -type f -name 'Basededatos-hbdpr1-*.pdf' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo hbdpr1 FS upitbd1.pdf" \;
+find . -type f -name 'Basededatos-hbdpr1-*.csv' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo hbdpr1 FS upitbd1.csv" \;
+find . -type f -name 'LinuxDepartamental-Departamental*.pdf' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo x86 SO Linux.pdf" \;
+find . -type f -name 'LinuxDepartamental-Departamental*.csv' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo x86 SO Linux.csv" \;
+find . -type f -name 'HSASLX06*.pdf' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo x86 SO Linux – hsaslx06.pdf" \;
+find . -type f -name 'HSASLX06*.csv' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo x86 SO Linux – hsaslx06.csv" \;
+find . -type f -name 'LinuxMonitoreo*.pdf' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo x86 SO Linux – Monitoreo.pdf" \;
+find . -type f -name 'LinuxMonitoreo*.csv' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo x86 SO Linux – Monitoreo.csv" \;
+find . -type f -name 'VPCONTLX01*.pdf' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo x86 SO Linux-VPCONTLX01.pdf" \;
+find . -type f -name 'VPCONTLX01*.csv' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo x86 SO Linux-VPCONTLX01.csv" \;
+find . -type f -name 'ServidoresWindows*.pdf' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo x86 SO Windows.pdf" \;
+find . -type f -name 'ServidoresWindows*.csv' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo x86 SO Windows.csv" \;
+find . -type f -name 'Servidoressql*.pdf' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo x86 SO Windows-SQLBI.pdf" \;
+find . -type f -name 'Servidoressql*.csv' -exec mv {} "1097-SHCP_$(date '+%d_%m_%Y')_Respaldo x86 SO Windows-SQLBI.csv" \;
+mkdir Reportes-$(date '+%d_%m_%Y');
+mv 1097* Reportes-$(date '+%d_%m_%Y');
+mv Backup*.pdf Reportes-$(date '+%d_%m_%Y');
+zip -r Reportes-$(date '+%d_%m_%Y'){.zip,};
+ls -l Reportes-$(date '+%d_%m_%Y') | grep -v ^l | wc -l
